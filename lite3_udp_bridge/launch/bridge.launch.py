@@ -11,12 +11,12 @@ def generate_launch_description():
                 {'SERV_PORT': 43897},
             ]
         ),
-        # Node(
-        #     package='lite3_udp_bridge',
-        #     executable='ros2qnx',
-        #     name='ros2qnx',
-        #     remappings=[
-        #         ('cmd_vel', '/controller/cmd_vel')
-        #     ]
-        # ),
+        Node(
+            package='lite3_udp_bridge',
+            executable='ros2qnx',
+            name='ros2qnx',
+            remappings=[
+                ('cmd_vel', '/controller/cmd_vel')
+            ]
+        ),
     ])

@@ -14,7 +14,7 @@ RosToQnx::RosToQnx() : Node("ros_to_qnx")
     addr_client.sin_addr.s_addr = inet_addr("192.168.1.120"); //mannual set
 
     vel_sub_ = create_subscription<geometry_msgs::msg::Twist>(
-        "controller/cmd_vel", 10, std::bind(&RosToQnx::velCallBack, this, _1));
+        "cmd_vel", 10, std::bind(&RosToQnx::velCallBack, this, _1));
 }
 
 void RosToQnx::velCallBack(geometry_msgs::msg::Twist::SharedPtr msg)
