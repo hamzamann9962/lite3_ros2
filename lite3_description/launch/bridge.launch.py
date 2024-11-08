@@ -15,8 +15,10 @@ def generate_launch_description():
             package='lite3_udp_bridge',
             executable='ros2qnx',
             name='ros2qnx',
-            remappings=[
-                ('cmd_vel', '/controller/cmd_vel')
-            ]
+        ),
+        Node(
+            package='rosbridge_server',
+            executable='rosbridge_websocket',
+            name='rosbridge_websocket'
         ),
     ])

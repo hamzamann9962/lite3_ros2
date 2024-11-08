@@ -38,17 +38,36 @@ source ~/ysc_ws/install/setup.bash
 ros2 launch lite3_udp_bridge bridge.launch.py
 ```
 
-### 1.1 Visualize Robot Joints
-```bash
-source ~/ysc_ws/install/setup.bash
-ros2 launch lite3_description visualize.launch.py
-```
+### 1.1 Visualize Robot
+* To visualize and check the configuration of the robot in rviz, simply launch:
 
-### 1.2 Visualize Lidar
-Setup and compile the lslidar ROS2 package, then the lidar can be visualized in rviz.
-```bash
-source ~/ysc_ws/install/setup.bash
-ros2 launch lslidar_driver lslidar_cx_rviz_launch.py
-```
+  ```bash
+  source ~/ysc_ws/install/setup.bash
+  ros2 launch lite3_description visualize.launch.py check_gui:=true
+  ```
+![joints](.images/joints.png)
 
+* To visualize the robot with the actual joint states data, launch:
+  ```bash
+  source ~/ysc_ws/install/setup.bash
+  ros2 launch lite3_description visualize.launch.py
+  ```
+![odom](.images/odom.png)
+
+* To visualize the robot with lidar data, launch:
+  ```bash
+  source ~/ysc_ws/install/setup.bash
+  ros2 launch lite3_description lslidar.launch.py
+  ```
 ![lidar](.images/lidar.png)
+
+## 2. SLAM
+### 2.1 Cartographer
+
+### 2.2 Fast-LIO
+  ```bash
+  source ~/ysc_ws/install/setup.bash
+  ros2 launch lite3_description fast_lio.launch.py
+  ```
+
+![fastlio](.images/fast_lio.png)

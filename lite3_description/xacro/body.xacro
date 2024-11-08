@@ -5,7 +5,7 @@
   <xacro:property name="damping" value="0.1"/>
   <xacro:property name="friction" value="0.1"/>
 
-  <xacro:include filename="$(find lite3_description)/xacro/imu_link.xacro"/>
+  <xacro:include filename="perception.xacro"/>
 
   <link name="base">
     <visual>

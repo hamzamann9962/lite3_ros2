@@ -18,7 +18,7 @@ QnxToRos::QnxToRos(): Node("qnx_to_ros")
     body_pose_pub_ = create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("body_pose", 10);
     leg_odom_pub_ = create_publisher<nav_msgs::msg::Odometry>("leg_odom", 10);
     joint_state_pub_ = create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);
-    imu_pub_ = create_publisher<sensor_msgs::msg::Imu>("imu", 10);
+    imu_pub_ = create_publisher<sensor_msgs::msg::Imu>("imu/data", 10);
     handle_pub_ = create_publisher<geometry_msgs::msg::Twist>("handle", 10);
     ultrasound_pub_ = create_publisher<std_msgs::msg::Float64>("ultrasound_distance", 10);
 

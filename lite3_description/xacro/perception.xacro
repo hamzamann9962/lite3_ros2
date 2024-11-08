@@ -27,4 +27,34 @@
     </collision>
   </link>
 
+  <joint name="laser_joint" type="fixed">
+    <parent link="TORSO"/>
+    <child link="laser_link"/>
+    <origin rpy="0 0 1.57" xyz="0.163 0 0.058"/>
+  </joint>
+
+  <link name="laser_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="body_joint" type="fixed">
+    <parent link="TORSO"/>
+    <child link="body"/>
+    <origin rpy="0 0 1.57" xyz="0 0 0"/>
+  </joint>
+
+  <link name="body">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
 </robot>
