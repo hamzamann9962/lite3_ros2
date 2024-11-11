@@ -16,7 +16,7 @@
     horizontal_angle_resolution: 0.18     #10Hz:0.18  20Hz:0.36 5Hz: 0.09
     frame_id: laser_link      #点云帧id
     topic_name: lslidar_point_cloud #点云话题名称
-    publish_scan: false       #是否发布 laserscan话题
+    publish_scan: true        #是否发布 laserscan话题
     scan_num: 8               #laserscan线号
     coordinate_opt: false     #点云0度角对应方向  true: x轴正方向
     #pcap: /home/ls/Downloads/xxx.pcap   #pcap包路径，离线解析pcap包时打开此注释

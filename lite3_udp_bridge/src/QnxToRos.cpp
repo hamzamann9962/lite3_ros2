@@ -53,8 +53,6 @@ void QnxToRos::initUdp()
 
 void QnxToRos::timer_callback()
 {
-    rclcpp::Time current_time = now();
-
     if ((recv_num = recvfrom(sock_fd, recv_buf, sizeof(recv_buf), 0, reinterpret_cast<sockaddr*>(&addr_serv),
                              reinterpret_cast<socklen_t*>(&len))) < 0)
     {
@@ -72,6 +70,7 @@ void QnxToRos::timer_callback()
 
         if (dr->code == 2305)
         {
+            rclcpp::Time current_time = now();
             geometry_msgs::msg::PoseWithCovarianceStamped leg_odom_data;
             leg_odom_data.header.frame_id = "odom";
             leg_odom_data.header.stamp = current_time;
@@ -130,7 +129,7 @@ void QnxToRos::timer_callback()
         if (dr->code == 2306)
         {
             sensor_msgs::msg::JointState joint_state_data;
-            joint_state_data.header.stamp = current_time;
+            joint_state_data.header.stamp = now();
             joint_state_data.name.resize(12);
             joint_state_data.position.resize(12);
 

@@ -36,7 +36,11 @@ colcon build --packages-up-to lite3_description --symlink-install
   ```
 
 ## SLAM
-
+* Cartographer
+  ```bash
+  source ~/ysc_ws/install/setup.bash
+  ros2 launch lite3_description cartographer.launch.py
+  ```
 * Fast-LIO
   ```bash
   source ~/ysc_ws/install/setup.bash
