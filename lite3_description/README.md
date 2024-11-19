@@ -10,7 +10,7 @@ Tested environment:
 ## Build
 
 ```bash
-cd ~/ysc_ws
+cd ~/ros2_ws
 colcon build --packages-up-to lite3_description --symlink-install
 ```
 
@@ -19,30 +19,30 @@ colcon build --packages-up-to lite3_description --symlink-install
 * To visualize and check the configuration of the robot in rviz, simply launch:
 
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description visualize.launch.py check_gui:=true
   ```
 
 * To visualize the robot with the actual joint states data, launch:
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description visualize.launch.py
   ```
 
 * To visualize the robot with lidar data, launch:
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description lslidar.launch.py
   ```
 
 ## SLAM
 * Cartographer
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description cartographer.launch.py
   ```
 * Fast-LIO
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description fast_lio.launch.py
   ```

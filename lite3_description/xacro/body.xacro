@@ -5,8 +5,6 @@
   <xacro:property name="damping" value="0.1"/>
   <xacro:property name="friction" value="0.1"/>
 
-  <xacro:include filename="perception.xacro"/>
-
   <link name="base">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>

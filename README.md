@@ -8,8 +8,8 @@ This repository is an unofficial project for DeepRobotics Lite3.
 
 ```bash
 cd ~
-mkdir ysc_ws
-cd ysc_ws
+mkdir ros2_ws
+cd ros2_ws
 mkdir src
 cd src
 ```
@@ -18,29 +18,29 @@ cd src
 
 ```bash
 git clone https://github.com/legubiao/Lite3_ROS2
-cd Lite3_ROS2
+cd lite3_ros2
 git submodule update --init --recursive
 ```
 
 * rosdep
 
 ```bash
-cd ~/ysc_ws
+cd ~/ros2_ws/
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
 * compile packages
 
 ```bash
-cd ~/ysc_ws
-colcon build --packages-up-to lite3_udp_bridge --symlink-install
+cd ~/ros2_ws/
+colcon build --packages-up-to lite3_udp_bridge lite3_description --symlink-install
 ```
 
 * launch
 
 ```bash
-source ~/ysc_ws/install/setup.bash
-ros2 launch lite3_udp_bridge bridge.launch.py
+source ~/ros2_ws/install/setup.bash
+ros2 launch lite3_description bridge.launch.py
 ```
 
 ### 1.1 Visualize Robot
@@ -48,7 +48,7 @@ ros2 launch lite3_udp_bridge bridge.launch.py
 * To visualize and check the configuration of the robot in rviz, simply launch:
 
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description visualize.launch.py check_gui:=true
   ```
 
@@ -62,9 +62,20 @@ ros2 launch lite3_udp_bridge bridge.launch.py
 
 ![odom](.images/odom.png)
 
+### 1.2 LsLidar Visualization
+
+* Install dependency
+  ```bash
+  sudo apt-get install libpcap-dev
+  ```
+* Compile lidar driver
+  ```bash
+  cd ~/ros2_ws/
+  colcon build --packages-up-to lslidar_driver --symlink-install
+  ```
 * To visualize the robot with lidar data, launch:
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws//install/setup.bash
   ros2 launch lite3_description lslidar.launch.py
   ```
 
@@ -73,16 +84,17 @@ ros2 launch lite3_udp_bridge bridge.launch.py
 ## 2. SLAM
 
 ### 2.1 SLAM Toolbox
+
 * Install
   ```bash
   sudo apt-get install ros-jazzy-slam-toolbox
   ```
 * Launch
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description slam_toolbox.launch.py
   ```
-  
+
 ### 2.1 Cartographer
 
 * Install
@@ -91,14 +103,14 @@ ros2 launch lite3_udp_bridge bridge.launch.py
   ```
 * Launch
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description cartographer.launch.py
   ```
 
 ### 2.2 Fast-LIO
 
   ```bash
-  source ~/ysc_ws/install/setup.bash
+  source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description fast_lio.launch.py
   ```
 

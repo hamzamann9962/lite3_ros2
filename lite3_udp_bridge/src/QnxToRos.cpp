@@ -86,6 +86,8 @@ void QnxToRos::timer_callback()
             body_pose_pub_->publish(leg_odom_data);
 
             nav_msgs::msg::Odometry leg_odom_data2;
+            leg_odom_data2.header = leg_odom_data.header;
+            leg_odom_data2.child_frame_id = "base";
             leg_odom_data2.pose = leg_odom_data.pose;
             leg_odom_data2.twist.twist.linear.x = robot_state->vel_body[0];
             leg_odom_data2.twist.twist.linear.y = robot_state->vel_body[1];

@@ -35,7 +35,7 @@ def generate_launch_description():
             executable='cartographer_node',
             name='cartographer_node',
             output='screen',
-            remappings=[('/cx/scan', '/scan/point_cloud')],
+            remappings=[('/scan', '/cx/scan'),('/odom', '/leg_odom')],
             arguments=['-configuration_directory', cartographer_config_dir,
                        '-configuration_basename', configuration_basename]),
 
