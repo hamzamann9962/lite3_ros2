@@ -46,3 +46,10 @@ colcon build --packages-up-to lite3_description --symlink-install
   source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description fast_lio.launch.py
   ```
+
+## Navigation
+* AMR Remote Control Toolkit
+  ```bash
+  source ~/ros2_ws/install/setup.bash
+  ros2 launch lite3_description amr_rctk.launch.py
+  ```
