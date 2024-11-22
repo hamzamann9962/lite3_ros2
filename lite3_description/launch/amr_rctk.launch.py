@@ -37,7 +37,7 @@ def generate_launch_description():
             parameters=[
                 {'foldername': foldername},
                 {'navigation_command': 'lite3_description nav2.launch.py'},
-                {'start_mapping_command': 'ros2 launch lite3_description cartographer.launch.py'},
+                {'start_mapping_command': 'ros2 launch lite3_description slam_cartographer.launch.py'},
                 {'save_map_command': 'ros2 run nav2_map_server map_saver_cli -f'}
             ]
         )

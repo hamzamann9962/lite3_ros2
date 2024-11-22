@@ -14,6 +14,7 @@ from launch.substitutions import ThisLaunchFileDir
 
 def generate_launch_description():
     package_path = get_package_share_directory('lite3_description')
+
     default_config_path = os.path.join(package_path, 'config', 'fast_lio')
     default_rviz_config_path = os.path.join(
         package_path, 'config', 'fast_lio', 'fastlio.rviz')

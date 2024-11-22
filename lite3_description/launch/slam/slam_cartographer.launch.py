@@ -8,7 +8,9 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
+    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
     cartographer_prefix = get_package_share_directory('lite3_description')
+
     cartographer_config_dir = LaunchConfiguration('cartographer_config_dir', default=os.path.join(
         cartographer_prefix, 'config', 'cartographer'))
     configuration_basename = LaunchConfiguration('configuration_basename',
@@ -29,12 +31,17 @@ def generate_launch_description():
             'configuration_basename',
             default_value=configuration_basename,
             description='Name of lua file for cartographer'),
+        DeclareLaunchArgument(
+            'use_sim_time',
+            default_value='false',
+            description='Use simulation (Gazebo) clock if true'),
 
         Node(
             package='cartographer_ros',
             executable='cartographer_node',
             name='cartographer_node',
             output='screen',
+            parameters=[{'use_sim_time': use_sim_time}],
             remappings=[('/scan', '/cx/scan'),('/odom', '/leg_odom')],
             arguments=['-configuration_directory', cartographer_config_dir,
                        '-configuration_basename', configuration_basename]),
@@ -54,6 +61,7 @@ def generate_launch_description():
             executable='cartographer_occupancy_grid_node',
             name='cartographer_occupancy_grid_node',
             output='screen',
+            parameters=[{'use_sim_time': use_sim_time}],
             arguments=['-resolution', resolution, '-publish_period_sec', publish_period_sec]),
 
         Node(

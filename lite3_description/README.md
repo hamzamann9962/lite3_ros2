@@ -39,12 +39,12 @@ colcon build --packages-up-to lite3_description --symlink-install
 * Cartographer
   ```bash
   source ~/ros2_ws/install/setup.bash
-  ros2 launch lite3_description cartographer.launch.py
+  ros2 launch lite3_description slam_cartographer.launch.py
   ```
 * Fast-LIO
   ```bash
   source ~/ros2_ws/install/setup.bash
-  ros2 launch lite3_description fast_lio.launch.py
+  ros2 launch lite3_description slam_fast_lio.launch.py
   ```
 
 ## Navigation

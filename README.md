@@ -92,8 +92,10 @@ ros2 launch lite3_description bridge.launch.py
 * Launch
   ```bash
   source ~/ros2_ws/install/setup.bash
-  ros2 launch lite3_description slam_toolbox.launch.py
+  ros2 launch lite3_description slam_toolbox.launch.py :use_sim_time:=true
   ```
+
+![slamtoolbox](.images/slam_toolbox.png)
 
 ### 2.1 Cartographer
 
@@ -104,14 +106,16 @@ ros2 launch lite3_description bridge.launch.py
 * Launch
   ```bash
   source ~/ros2_ws/install/setup.bash
-  ros2 launch lite3_description cartographer.launch.py
+  ros2 launch lite3_description slam_cartographer.launch.py :use_sim_time:=true
   ```
+
+![cartographer2d](.images/cartographer2d.png)
 
 ### 2.2 Fast-LIO
 
   ```bash
   source ~/ros2_ws/install/setup.bash
-  ros2 launch lite3_description fast_lio.launch.py
+  ros2 launch lite3_description slam_fast_lio.launch.py :use_sim_time:=true
   ```
 
 ![fastlio](.images/fast_lio.png)
