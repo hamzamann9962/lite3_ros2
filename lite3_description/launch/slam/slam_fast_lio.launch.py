@@ -59,10 +59,6 @@ def generate_launch_description():
         arguments=['-d', rviz_cfg],
         condition=IfCondition(rviz_use)
     )
-    ls_driver = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/lslidar.launch.py']),
-        launch_arguments={'rviz': 'false'}.items()
-    )
 
     ld = LaunchDescription()
     ld.add_action(declare_use_sim_time_cmd)
@@ -73,6 +69,5 @@ def generate_launch_description():
 
     ld.add_action(fast_lio_node)
     ld.add_action(rviz_node)
-    ld.add_action(ls_driver)
 
     return ld

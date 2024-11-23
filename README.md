@@ -83,6 +83,11 @@ ros2 launch lite3_description bridge.launch.py
 
 ## 2. SLAM
 
+* record ros2 bag
+  ```bash
+  ros2 bag record /cx/scan /cx/lslidar_point_cloud /imu/data /leg_odom /tf /tf_static /joint_states /robot_description
+  ```
+
 ### 2.1 SLAM Toolbox
 
 * Install
@@ -97,7 +102,7 @@ ros2 launch lite3_description bridge.launch.py
 
 ![slamtoolbox](.images/slam_toolbox.png)
 
-### 2.1 Cartographer
+### 2.2 Cartographer 2D
 
 * Install
   ```bash
@@ -111,11 +116,22 @@ ros2 launch lite3_description bridge.launch.py
 
 ![cartographer2d](.images/cartographer2d.png)
 
-### 2.2 Fast-LIO
+### 2.3 Fast-LIO
 
+* Install
+    * ROS2 Verion of FAST_LIO could be found [here](https://github.com/Ericsii/FAST_LIO_ROS2)
+* Launch
   ```bash
   source ~/ros2_ws/install/setup.bash
   ros2 launch lite3_description slam_fast_lio.launch.py :use_sim_time:=true
   ```
 
 ![fastlio](.images/fast_lio.png)
+
+### 2.4 GLIM
+
+* Install
+    * Following the instruction [here](https://koide3.github.io/glim/)
+    * The required config file could be found at `lite3_description/config/glim`
+      
+![glim](.images/glim.png)
